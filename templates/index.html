@@ -9,8 +9,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Long PROMPTs Splitter for ChatGPT</h1>
-        <h2>Tool for safely process chunks of up to 15,000 characters per request</h2>
+        <div class="header">
+            <div class="header-logo">
+              <img src="/static/chatgpt_prompt_splitter.png" alt="Logo" class="logo">
+            </div>
+            <div class="header-text">
+              <h1>Long PROMPTs Splitter for ChatGPT</h1>
+              <h2>Tool for safely process chunks of up to 15,000 characters per request</h2>
+            </div>
+        </div>
         <form action="/" method="post">
             <div class="form-group">
                 <label for="prompt">Enter the long prompt to be splitted</label>
@@ -100,26 +107,23 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
 
         function updateSplitBtnStatus() {
             const promptLength = promptTextArea.value.trim().length;
-            console.log("promptLength = " + promptLength);
             const splitLength = parseInt(document.getElementById('split_length').value);
-            console.log("splitLength = " + splitLength);
-
+          
             if (promptLength === 0) {
-                console.log("promptLength === 0");
-                splitBtn.setAttribute('disabled', 'disabled');
-                splitBtn.textContent = 'No prompt entered';
+              splitBtn.setAttribute('disabled', 'disabled');
+              splitBtn.textContent = 'No prompt entered';
             } else if (promptLength < splitLength) {
-                console.log("promptLength < splitLength");
-                splitBtn.setAttribute('disabled', 'disabled');
-                splitBtn.textContent = 'Prompt is shorter than split length';
-                
+              splitBtn.setAttribute('disabled', 'disabled');
+              splitBtn.textContent = 'Prompt is shorter than split length';
             } else {
-                console.log("promptLength >= splitLength");
-                splitBtn.removeAttribute('disabled');
-                splitBtn.textContent = `Split into ${Math.ceil(promptLength / splitLength)} parts`;
+              splitBtn.removeAttribute('disabled');
+              splitBtn.textContent = `Split into ${Math.ceil(promptLength / splitLength)} parts`;
             }
         }
-
+        
+        // Add this line to call updateSplitBtnStatus() when the page is loaded
+        document.addEventListener('DOMContentLoaded', updateSplitBtnStatus);
+          
         promptTextArea.addEventListener('input', updateSplitBtnStatus);
         document.getElementById('split_length').addEventListener('input', updateSplitBtnStatus);
 

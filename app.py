@@ -8,6 +8,7 @@ def index():
     prompt = ""
     split_length = ""
     file_data = []
+
     if request.method == "POST":
         prompt = request.form["prompt"]
         split_length = int(request.form["split_length"])

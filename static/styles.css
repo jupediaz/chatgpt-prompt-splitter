@@ -25,7 +25,8 @@ html {
 
 h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    width: 100%;
 }
 
 h2 {
@@ -33,6 +34,7 @@ h2 {
     font-size: 16px;
     font-weight: normal;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 label {
@@ -138,4 +140,31 @@ button[disabled] {
 
 .char-count-container {
     text-align: right;
-}  
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    max-width: 100px;
+    height: 100px;
+  }
+  
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 80%;
+}
+
+.header-logo {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}

@@ -11,6 +11,16 @@ The tool ensures that the text is divided into safe chunks of up to 15,000 chara
 
 The project includes an easy-to-use web interface for inputting the long text, selecting the maximum length of each chunk, and copying the chunks individually to paste them to ChatGPT.
 
+## How it works
+
+The tool uses a simple algorithm to split the text into smaller chunks. The algorithm is based on the following rules:
+
+1. First, the prompt is splitted into chunks according the specified maximum length.
+
+2. We add some information to the first chunk for instructing the AI how are we gonna send the chunks and asking the AI just to acknowledge the reception of the chunks and waiting until we have finished sending the chunks and can continue with our requests.
+
+
+
 ## Features
 
 - Web interface for splitting text into smaller chunks
