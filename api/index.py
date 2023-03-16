@@ -41,3 +41,11 @@ def split_text(text, split_length):
 
 if __name__ == "__main__":
     app.run(debug=True)
+else:
+    from gevent.pywsgi import WSGIServer
+    from gevent import monkey
+    monkey.patch_all()
+
+    server = WSGIServer(('0.0.0.0', 80), app)
+    server.serve_forever()
+
