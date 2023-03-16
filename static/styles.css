@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: auto;
+    padding: 20px;
+}
+
+html {
+    height: 100%;
+}  
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+textarea, input {
+    width: -webkit-fill-available;
+    font-family: inherit;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.copy-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    flex-basis: 48%;
+    text-align: center;
+}
+
+.copy-btn:hover {
+    background-color: #3e8e41;
+}
+
+.clicked {
+    background-color: #888;
+    color: #ccc;
+}
+
+.clicked:hover {
+    background-color: #666;
+}
+
+.copy-instructions-btn {
+    background-color: #FF8000;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.copy-instructions-btn:hover {
+    background-color: #CC6600;
+}
+
+.custom_length {
+    font-size: 12px;
+    width: 100px;
+    height: 17px;
+}
+
+select {
+    height: 24px;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 12px;
+    background-color: lightgray;
+    padding: 1px 10px 10px 10px;
+}
+
+help {
+    font-size: 12px;
+    color: #888;
+}
+
+button[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.char-count-container {
+    text-align: right;
+}  
