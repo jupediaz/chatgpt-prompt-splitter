@@ -19,8 +19,6 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 
 2. We add some information to the first chunk for instructing the AI how are we gonna send the chunks and asking the AI just to acknowledge the reception of the chunks and waiting until we have finished sending the chunks and can continue with our requests.
 
-
-
 ## Features
 
 - Web interface for splitting text into smaller chunks
@@ -42,16 +40,19 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 ```bash
 git clone https://github.com/username/long-prompts-splitter.git
 ```
+
 2. Change to the project directory:
 
 ```bash
 cd long-prompts-splitter
 ```
+
 3. Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
+
 ### Usage
 
 1. Run the Flask application:
@@ -73,7 +74,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contributing
 
 Contributions are welcome! Please read the [CONTRIBUTING](CONTRIBUTING.md) file for details on how to contribute to the project.
-
 
 ## Contact
 
