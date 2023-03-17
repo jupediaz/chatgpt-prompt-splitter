@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/chatgpt_prompt_splitter.png" width="150" alt="Long PROMPTs Splitter for ChatGPT" />
+  <img src="static/chatgpt_prompt_splitter.png" width="150" alt="ChatGPT PROMPTs Splitter" />
   <h1 align="center">ChatGPT PROMPTs Splitter</h1>
 </p>
 
