@@ -3,6 +3,8 @@
   <h1 align="center">ChatGPT PROMPTs Splitter</h1>
 </p>
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjupediaz%2Fchatgpt-prompt-splitter)
+
 ## Overview
 
 **ChatGPT PROMPTs Splitter** is an open-source tool designed to help you split long text prompts into smaller chunks, making them suitable for usage with ChatGPT (or other language models with character limitations).
@@ -38,13 +40,13 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/username/long-prompts-splitter.git
+git clone https://github.com/jupediaz/chatgpt-prompt-splitter.git
 ```
 
 2. Change to the project directory:
 
 ```bash
-cd long-prompts-splitter
+cd chatgpt-prompt-splitter
 ```
 
 3. Install the required dependencies:
@@ -58,10 +60,10 @@ pip install -r requirements.txt
 1. Run the Flask application:
 
 ```bash
-python app.py
+vercel dev
 ```
 
-2. Open your web browser and navigate to http://localhost:5000.
+2. Open your web browser and navigate to http://localhost:3000.
 
 3. Input the long text prompt, select the maximum length for each chunk, and click the "Split" button.
 
