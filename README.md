@@ -17,7 +17,7 @@ The project includes an easy-to-use web interface for inputting the long text, s
 
 The tool uses a simple algorithm to split the text into smaller chunks. The algorithm is based on the following rules:
 
-1. First, the prompt is splitted into chunks according the specified maximum length.
+1. First, we split the prompt into chunks according to the specified maximum length.
 
 2. We add some information to the first chunk for instructing the AI how are we gonna send the chunks and asking the AI just to acknowledge the reception of the chunks and waiting until we have finished sending the chunks and can continue with our requests.
 
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 vercel dev
 ```
 
-2. Open your web browser and navigate to http://localhost:3000.
+2. Open your web browser and navigate to <http://localhost:3000>.
 
 3. Input the long text prompt, select the maximum length for each chunk, and click the "Split" button.
 
@@ -79,8 +79,7 @@ Contributions are welcome! Please read the [CONTRIBUTING](CONTRIBUTING.md) file 
 
 ## Contact
 
-If you have any questions or suggestions, please contact me at [
-hello@jjdiaz.dev](mailto:hello@jjdiaz.dev).
+If you have any questions or suggestions, please contact me at [hello@jjdiaz.dev](mailto:hello@jjdiaz.dev).
 
 ## Disclaimer
 
