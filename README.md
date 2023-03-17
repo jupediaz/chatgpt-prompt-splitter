@@ -17,9 +17,9 @@ The project includes an easy-to-use web interface for inputting the long text, s
 
 The tool uses a simple algorithm to split the text into smaller chunks. The algorithm is based on the following rules:
 
-1. First, we split the prompt into chunks according to the specified maximum length.
+1. Divide the prompt into chunks based on the specified maximum length.
 
-2. We add some information to the first chunk for instructing the AI how are we gonna send the chunks and asking the AI just to acknowledge the reception of the chunks and waiting until we have finished sending the chunks and can continue with our requests.
+2. Add information to the first chunk to instruct the AI on the process of receiving and acknowledging the chunks, and to wait for the completion of chunk transmission before processing subsequent requests.
 
 ## Features
 
