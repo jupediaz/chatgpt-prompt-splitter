@@ -1,4 +1,6 @@
 import os
+import random
+import string
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -14,8 +16,10 @@ def index():
         split_length = int(request.form["split_length"])
 
         file_data = split_prompt(prompt, split_length)
-
-    return render_template("index.html", prompt=prompt, split_length=split_length, file_data=file_data)
+        
+    hash_value = generate_random_hash(8)
+    
+    return render_template("index.html", prompt=prompt, split_length=split_length, file_data=file_data, hash=hash_value)
             
 def split_prompt(text, split_length):
     if split_length <= 0:
@@ -41,3 +45,6 @@ def split_prompt(text, split_length):
         })
 
     return file_data
+
+def generate_random_hash(length):
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))

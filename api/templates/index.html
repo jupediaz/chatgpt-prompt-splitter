@@ -15,17 +15,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta og:title="Long PROMPTs Splitter">
     <meta og:description="Tool for safely process chunks of up to 15,000 characters per request">
-    <script>
-        function generateRandomHash(length) {
-            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            var result = '';
-            for (var i = 0; i < length; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return result;
-        }
-    </script>
-    <meta og:image="https://opengraph.githubassets.com/{{hash}}/jupediaz/chatgpt-prompt-splitter">
+    <meta og:image="https://opengraph.githubassets.com/s{{ hash }}/jupediaz/chatgpt-prompt-splitter">
 </head>
 <body>
     <div class="container">
@@ -158,13 +148,9 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
         });
 
         function updateCharCount() {
-            console.log("-> updateCharCount() called");
             const promptField = document.getElementById('prompt');
             const charCount = document.getElementById('prompt-char-count');
             charCount.textContent = promptField.value.length;
-
-            console.log("promptField.textContent = " + promptField.textContent);
-            console.log("charCount.textContent = " + charCount.textContent);
         }
           
         document.getElementById('prompt').addEventListener('input', updateCharCount);
@@ -193,13 +179,6 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
         document.getElementById('split_length').addEventListener('input', updateSplitButton);
         document.getElementById('preset').addEventListener('change', updateSplitButton);
         updateSplitButton();
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var hash = generateRandomHash(8); // Generate a random 8-character hash
-            var ogImageMetaTag = document.querySelector('meta[og\\:image]');
-            var ogImageURL = 'https://opengraph.githubassets.com/' + hash + '/jupediaz/chatgpt-prompt-splitter';
-            ogImageMetaTag.setAttribute('content', ogImageURL);
-        });
     </script>
 </body>
 </html>
