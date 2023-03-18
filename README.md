@@ -69,6 +69,24 @@ vercel dev
 
 4. Copy the chunks and paste them into ChatGPT.
 
+## Running Tests
+
+This project includes a suite of unit tests to ensure the proper functionality of the tool. To run the tests, follow these steps:
+
+1. Make sure you have the required dependencies installed:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Run the tests using the unittest module:
+
+```bash
+python3 -m unittest discover tests
+```
+
+The test suite will run, and the results will be displayed in the terminal.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

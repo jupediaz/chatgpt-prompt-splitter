@@ -13,11 +13,14 @@ def index():
         prompt = request.form["prompt"]
         split_length = int(request.form["split_length"])
 
-        file_data = split_text(prompt, split_length)
+        file_data = split_prompt(prompt, split_length)
 
     return render_template("index.html", prompt=prompt, split_length=split_length, file_data=file_data)
             
-def split_text(text, split_length):
+def split_prompt(text, split_length):
+    if split_length <= 0:
+        raise ValueError("Max length must be greater than 0.")
+
     num_parts = -(-len(text) // split_length)
     file_data = []
 
