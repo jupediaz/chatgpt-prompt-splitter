@@ -5,6 +5,12 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjupediaz%2Fchatgpt-prompt-splitter)
 
+
+###❓ Have you ever received a message from ChatGPT about sending too much data and needing to send a shorter text?
+
+####**Here's a great alternative to bypass this limitation!** 🚀
+
+![Error Message Too Long](/static/screenshots/screenshot_error_message_too_long.png)
 ## Overview
 
 **ChatGPT PROMPTs Splitter** is an open-source tool designed to help you split long text prompts into smaller chunks, making them suitable for usage with ChatGPT (or other language models with character limitations).
@@ -27,6 +33,45 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 - Customizable maximum length for each chunk
 - Copy chunks individually to send to ChatGPT
 - Instructions for ChatGPT on how to process the chunks
+
+## Usage example
+
+Follow these simple steps to use the ChatGPT Prompt Splitter web application, illustrated with screenshots.
+
+### Step 1: Access the application
+Open your web browser and navigate to the application URL.
+
+https://chatgpt-prompt-splitter.jjdiaz.dev/
+
+You should see the main screen, displaying the input fields for your long text prompt and maximum chunk length.
+
+![Set Max Length](/static/screenshots/screenshot_main_screen.png)
+
+### Step 2: Input the long prompt
+Enter the text you want to split into smaller chunks for use with ChatGPT.
+
+You can also specify custom length for each chunk by entering the number of characters in the *"Max chars length..."* field.
+
+In this example, we are gonna split into chunks of just 25 characters.
+
+![Input Text](/static/screenshots/screenshot_example_text.png)
+
+### Step 3: Click "Split"
+Click the "Split" button to process the text and divide it into smaller chunks.
+
+![Click Split](/static/screenshots/screenshot_example_text_splitted.png)
+
+### Step 4: Copy the chunks
+The application will display the text divided into smaller chunks. You can copy each chunk individually by clicking the "Copy" button next to it.
+
+![Copy Chunks](/static/screenshots/screenshot_example_copy_chunks.png)
+
+### Step 5: Paste the chunks into ChatGPT
+Now that you have your chunks copied, you can paste them into ChatGPT or any other language model with character limitations.
+
+![Paste Chunks](/static/screenshots/screenshot_example_paste_chunks.png)
+
+That's it! You've successfully split a **long PROMPT** into smaller, manageable chunks using the **ChatGPT Prompt Splitter**.
 
 ## Getting Started
 
@@ -57,6 +102,8 @@ pip install -r requirements.txt
 
 ### Usage
 
+#### Running the Flask application in development mode
+
 1. Run the Flask application:
 
 ```bash
@@ -65,9 +112,15 @@ vercel dev
 
 2. Open your web browser and navigate to <http://localhost:3000>.
 
-3. Input the long text prompt, select the maximum length for each chunk, and click the "Split" button.
+#### Deploy the Flask application to production
 
-4. Copy the chunks and paste them into ChatGPT.
+1. Deploy the Flask application:
+
+```bash
+vercel --prod
+```
+
+2. Open your web browser and navigate to <https://chatgpt-prompt-splitter.jjdiaz.dev/>.
 
 ## Running Tests
 
