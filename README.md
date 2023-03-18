@@ -5,10 +5,9 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjupediaz%2Fchatgpt-prompt-splitter)
 
+### ❓ Have you ever received a message from ChatGPT about sending too much data and needing to send a shorter text?
 
-###❓ Have you ever received a message from ChatGPT about sending too much data and needing to send a shorter text?
-
-####**Here's a great alternative to bypass this limitation!** 🚀
+#### **Here's a great alternative to bypass this limitation!** 🚀
 
 ![Error Message Too Long](/static/screenshots/screenshot_error_message_too_long.png)
 ## Overview
