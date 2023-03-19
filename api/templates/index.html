@@ -25,10 +25,7 @@
         </div>
         <div class="header-text">
           <h1>ChatGPT PROMPTs Splitter</h1>
-          <h2>
-            Tool for safely process chunks of up to 15,000 characters per
-            request
-          </h2>
+          <h2>Tool for safely process chunks of up to 15,000 characters per request</h2>
         </div>
       </div>
       <form action="/" method="post">
@@ -67,8 +64,9 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
         <help>This way we explain ChatGPT how to process the messages we are gonna send.</help>
       </div>
       <div class="buttons-container">
-        {% for file in file_data %} {% set partNumber = file.name[6:9]|int %} {%
-        set totalParts = file.name[13:16]|int %}
+        {% for file in file_data %}
+        {% set partNumber = file.name[6:9]|int %}
+        {% set totalParts = file.name[13:16]|int %}
         <button class="copy-btn" data-content="{{ file.content }}" onclick="copyToClipboard(this)">Copy part {{ partNumber }}/{{ totalParts }} to clipboard</button>
         {% endfor %}
       </div>
@@ -79,80 +77,6 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
         </p>
       </footer>
     </div>
-    <script>
-      document.getElementById("prompt").addEventListener("input", function () {
-        updateSplitButtonStatus();
-        updatePromptCharCount();
-      });
-
-      document.getElementById('split_length').addEventListener('input', updateSplitButtonStatus);
-
-      function copyToClipboard(element) {
-        const textArea = document.createElement("textarea");
-        textArea.value = element.getAttribute("data-content");
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-        element.classList.add("clicked");
-      }
-
-      function copyInstructions() {
-        const instructionsButton = document.getElementById("copy-instructions-btn");
-        const instructions = document.getElementById("instructions").textContent;
-        const textArea = document.createElement("textarea");
-        textArea.value = instructions;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-        instructionsButton.classList.add("clicked");
-      }
-
-      function toggleCustomLength(select) {
-        const customLengthInput = document.getElementById("split_length");
-        if (select.value === "custom") {
-          customLengthInput.style.display = "inline";
-        } else {
-          customLengthInput.value = select.value;
-          customLengthInput.style.display = "none";
-        }
-      }
-
-      function updateSplitButtonStatus() {
-        const promptField = document.getElementById('prompt');
-        const splitLength = document.getElementById('split_length');
-        const splitBtn = document.getElementById('split-btn');
-        const promptLength = promptField.value.trim().length;
-        const splitLengthValue = parseInt(splitLength.value);
-    
-        if (promptLength === 0) {
-            splitBtn.setAttribute('disabled', 'disabled');
-            splitBtn.classList.add('disabled');
-            splitBtn.textContent = 'Enter a prompt';
-        } else if (isNaN(splitLengthValue) || splitLengthValue === 0) {
-            splitBtn.setAttribute('disabled', 'disabled');
-            splitBtn.classList.add('disabled');
-            splitBtn.textContent = 'Enter the length for calculating';
-        } else if (promptLength < splitLengthValue) {
-            splitBtn.setAttribute('disabled', 'disabled');
-            splitBtn.classList.add('disabled');
-            splitBtn.textContent = 'Prompt is shorter than split length';
-        } else {
-            splitBtn.removeAttribute('disabled');
-            splitBtn.classList.remove('disabled');
-            splitBtn.textContent = `Split into ${Math.ceil(promptLength / splitLengthValue)} parts`;
-        }
-      }
-
-      function updatePromptCharCount() {
-        const promptField = document.getElementById("prompt");
-        const charCount = document.getElementById("prompt-char-count");
-        const promptLength = promptField.value.trim().length;
-        charCount.textContent = promptLength;
-      }
-
-      updateSplitButtonStatus();
-    </script>
+    <script src="/static/scripts.js"></script>
   </body>
 </html>

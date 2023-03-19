@@ -1,12 +1,15 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
     overflow: auto;
     padding: 20px;
 }
@@ -15,8 +18,11 @@ html {
     height: 100%;
 }
 
-* {
+*,
+textarea,
+input {
     box-sizing: border-box;
+    font-family: inherit;
 }
 
 .container {
@@ -27,19 +33,20 @@ html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1,
+h2 {
     text-align: center;
-    font-size: 1rem;
     width: 100%;
     margin: 0;
 }
 
+h1 {
+    font-size: 1rem;
+}
+
 h2 {
-    text-align: center;
     font-size: 11px;
     font-weight: normal;
-    width: 100%;
-    margin: 0;
 }
 
 label {
@@ -48,9 +55,9 @@ label {
     margin-top: 10px;
 }
 
-textarea, input {
+textarea,
+input {
     width: -webkit-fill-available;
-    font-family: inherit;
 }
 
 textarea {
@@ -66,7 +73,6 @@ button {
     background-color: #007bff;
     color: #fff;
     font-size: 16px;
-    font-family: inherit;
     border: none;
     cursor: pointer;
     margin-top: 20px;
@@ -83,15 +89,20 @@ button:hover {
     margin-top: 20px;
 }
 
-.copy-btn {
-    background-color: #4caf50;
-    color: white;
+.copy-btn,
+.copy-instructions-btn {
     padding: 10px;
     border: none;
     cursor: pointer;
-    margin-bottom: 10px;
-    flex-basis: 48%;
+    color: white;
     text-align: center;
+    font-size: 13px;
+}
+
+.copy-btn {
+    background-color: #4caf50;
+    flex-basis: min-content;
+    margin-bottom: 10px;
 }
 
 .copy-btn:hover {
@@ -109,12 +120,7 @@ button:hover {
 
 .copy-instructions-btn {
     background-color: #FF8000;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
     margin-top: 10px;
-    text-align: center;
 }
 
 .copy-instructions-btn:hover {
@@ -162,8 +168,8 @@ button[disabled] {
 
 .logo {
     max-width: 90%;
-  }
-  
+}
+
 .header-text {
     display: flex;
     flex-direction: column;
@@ -189,10 +195,6 @@ pre {
     border-radius: 5px;
 }
 
-.copy-btn {
-    font-size: 12px;
-}
-
 .footer {
     margin-top: 20px;
     padding-top: 20px;
@@ -211,7 +213,7 @@ pre {
 
 @media (min-width: 768px) {
     textarea {
-      height: 300px;
+        height: 300px;
     }
 
     h1 {
