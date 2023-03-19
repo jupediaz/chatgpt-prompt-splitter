@@ -28,10 +28,13 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 
 ## Features
 
+- Python 3.9
 - Web interface for splitting text into smaller chunks
 - Customizable maximum length for each chunk
 - Copy chunks individually to send to ChatGPT
 - Instructions for ChatGPT on how to process the chunks
+- Tests included
+- Easy deployment to Vercel included
 
 ## Usage example
 
