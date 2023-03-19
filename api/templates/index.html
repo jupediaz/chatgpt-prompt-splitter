@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,170 +15,144 @@
     <meta name="theme-color" content="#ffffff">
     <meta og:title="Long PROMPTs Splitter">
     <meta og:description="Tool for safely process chunks of up to 15,000 characters per request">
-    <meta og:image="https://opengraph.githubassets.com/s{{ hash }}/jupediaz/chatgpt-prompt-splitter">
-</head>
-<body>
+    <meta og:image="https://opengraph.githubassets.com/{{ hash }}/jupediaz/chatgpt-prompt-splitter">
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <div class="header-logo">
-              <img src="/static/chatgpt_prompt_splitter.png" alt="Logo" class="logo">
-            </div>
-            <div class="header-text">
-              <h1>ChatGPT PROMPTs Splitter</h1>
-              <h2>Tool for safely process chunks of up to 15,000 characters per request</h2>
-            </div>
+      <div class="header">
+        <div class="header-logo">
+          <a href="/"><img src="/static/chatgpt_prompt_splitter.png" alt="Logo" class="logo"/></a>
         </div>
-        <form action="/" method="post">
-            <div class="form-group">
-                <label for="prompt">Enter the long prompt to be splitted</label>
-                <textarea class="form-control" id="prompt" name="prompt" rows="10">{{ prompt }}</textarea>
-                <help>Enter the PROMPT that you want to use for the ChatGPT request.</help>
-                <div class="char-count-container">
-                    <span id="prompt-char-count">{{ prompt|length }}</span> characters
-                </div>                  
-            </div>
-            <label for="split_length">Max chars length for each splitted part</label>
-            <select name="preset" id="preset" onchange="toggleCustomLength(this)" required>
-                <option value="15000" {% if split_length == 15000 or split_length is none or split_length == '' %}selected{% endif %}>General max safe chunk for ChatGPT (15,000)</option>
-                <option value="custom" {% if split_length != 8000 and split_length != 15000 and split_length != '' and split_length is not none %}selected{% endif %}>Custom</option>
-            </select>
-            <input type="number" name="split_length" class="custom_length" id="split_length" min="1" required value="{{ split_length if split_length is not none and split_length != '' else 1000 }}" {% if split_length == 8000 or split_length == 15000 or split_length is none or split_length == '' %}style="display: none;"{% endif %}>
-            <help>Choose the max length for each splitted part.</help>
-            <button type="submit" id="split-btn" class="{% if btn_disabled %}disabled{% endif %}" {% if btn_disabled %}disabled{% endif %}>{{ btn_text }}</button>
-        </form>
-        {% if file_data %}
-        <div class="instructions">
-            <h3>Instructions</h3>
-            <pre id="instructions">The total length of the content that I want to send you is too large to send in only one piece.
-
-For sending you that content, I will follow this rule:
-
-[START PART 1/10]
-this is the content of the part 1 out of 10 in total
-[END PART 1/10]
-
-Then you just answer: "Received part 1/10"
-
-And when I tell you "ALL PARTS SENT", then you can continue processing the data and answering my requests.</pre>
-            <button type="button" class="copy-btn" id="copy-instructions-btn" onclick="copyInstructions()">Copy Instructions (first message to send)</button>
-            <help>This way we explain ChatGPT how to process the messages we are gonna send.</help>
+        <div class="header-text">
+          <h1>ChatGPT PROMPTs Splitter</h1>
+          <h2>
+            Tool for safely process chunks of up to 15,000 characters per
+            request
+          </h2>
         </div>
-        <div class="buttons-container">
-            {% for file in file_data %}
-            <button class="copy-btn" data-content="{{ file.content }}" onclick="copyToClipboard(this)">Copy part {{ file.name[6:9] }}/{{ file.name[13:16] }} to clipboard</button>
-            {% endfor %}
+      </div>
+      <form action="/" method="post">
+        <div class="form-group">
+          <label for="prompt">Enter the long prompt to be splitted</label>
+          <textarea class="form-control" id="prompt" name="prompt" rows="10">{{ prompt }}</textarea>
+          <help>Enter the PROMPT that you want to use for the ChatGPT request.</help>
+          <div class="char-count-container">
+            <span id="prompt-char-count">{{ prompt|length }}</span> characters
+          </div>
         </div>
-        {% endif %}
+        <label for="split_length">Max chars length for each splitted part</label>
+        <select name="preset" id="preset" onchange="toggleCustomLength(this)" required>
+            <option value="15000" {% if split_length == 15000 or split_length is none or split_length == '' %}selected{% endif %}>General max safe chunk for ChatGPT (15,000)</option>
+            <option value="custom" {% if split_length != 8000 and split_length != 15000 and split_length != '' and split_length is not none %}selected{% endif %}>Custom</option>
+        </select>
+        <input type="number" name="split_length" class="custom-length" id="split_length" min="1" required value="{{ split_length if split_length is not none and split_length != '' else 1000 }}" {% if split_length == 8000 or split_length == 15000 or split_length is none or split_length == '' %}style="display: none;"{% endif %}>
+        <help>Choose the max length for each split part.</help>
+        <button type="submit" id="split-btn" class="{% if btn_disabled %}disabled{% endif %}"{% if btn_disabled %} disabled{% endif%}>Enter a prompt</button>
+      </form>
+      {% if file_data %}
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <pre id="instructions">The total length of the content that I want to send you is too large to send in only one piece.
+        
+        For sending you that content, I will follow this rule:
+        
+        [START PART 1/10]
+        this is the content of the part 1 out of 10 in total
+        [END PART 1/10]
+        
+        Then you just answer: "Received part 1/10"
+        
+        And when I tell you "ALL PARTS SENT", then you can continue processing the data and answering my requests.</pre>
+        <button type="button" class="copy-btn" id="copy-instructions-btn" onclick="copyInstructions()">Copy Instructions (first message to send)</button>
+        <help>This way we explain ChatGPT how to process the messages we are gonna send.</help>
+      </div>
+      <div class="buttons-container">
+        {% for file in file_data %} {% set partNumber = file.name[6:9]|int %} {%
+        set totalParts = file.name[13:16]|int %}
+        <button class="copy-btn" data-content="{{ file.content }}" onclick="copyToClipboard(this)">Copy part {{ partNumber }}/{{ totalParts }} to clipboard</button>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <footer>
+        <p>
+          View source code on <a href="https://github.com/jupediaz/chatgpt-prompt-splitter" target="_blank" rel="noopener noreferrer">Github</a>
+        </p>
+      </footer>
     </div>
     <script>
-        document.getElementById('prompt').addEventListener('input', function () {
-            const splitButton = document.getElementById('split-btn');
-            if (this.value.trim().length > 0) {
-                splitButton.removeAttribute('disabled');
-            } else {
-                splitButton.setAttribute('disabled', 'disabled');
-            }
-        });        
+      document.getElementById("prompt").addEventListener("input", function () {
+        updateSplitButtonStatus();
+        updatePromptCharCount();
+      });
 
-        function copyToClipboard(element) {
-            const textArea = document.createElement('textarea');
-            textArea.value = element.getAttribute('data-content');
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            element.classList.add('clicked');
+      document.getElementById('split_length').addEventListener('input', updateSplitButtonStatus);
+
+      function copyToClipboard(element) {
+        const textArea = document.createElement("textarea");
+        textArea.value = element.getAttribute("data-content");
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        element.classList.add("clicked");
+      }
+
+      function copyInstructions() {
+        const instructionsButton = document.getElementById("copy-instructions-btn");
+        const instructions = document.getElementById("instructions").textContent;
+        const textArea = document.createElement("textarea");
+        textArea.value = instructions;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        instructionsButton.classList.add("clicked");
+      }
+
+      function toggleCustomLength(select) {
+        const customLengthInput = document.getElementById("split_length");
+        if (select.value === "custom") {
+          customLengthInput.style.display = "inline";
+        } else {
+          customLengthInput.value = select.value;
+          customLengthInput.style.display = "none";
         }
+      }
 
-        function copyInstructions() {
-            const instructionsButton = document.getElementById('copy-instructions-btn');
-            const instructions = document.getElementById('instructions').textContent;
-            const textArea = document.createElement('textarea');
-            textArea.value = instructions;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            instructionsButton.classList.add('clicked');
-        }        
-
-        function toggleCustomLength(select) {
-            const customLengthInput = document.getElementById('split_length');
-            if (select.value === 'custom') {
-                customLengthInput.style.display = 'inline';
-            } else {
-                customLengthInput.value = select.value;
-                customLengthInput.style.display = 'none';
-            }
-        }
-
-        const promptTextArea = document.getElementById('prompt');
+      function updateSplitButtonStatus() {
+        const promptField = document.getElementById('prompt');
+        const splitLength = document.getElementById('split_length');
         const splitBtn = document.getElementById('split-btn');
-
-        function updateSplitBtnStatus() {
-            const promptLength = promptTextArea.value.trim().length;
-            const splitLength = parseInt(document.getElementById('split_length').value);
-          
-            if (promptLength === 0) {
-              splitBtn.setAttribute('disabled', 'disabled');
-              splitBtn.textContent = 'No prompt entered';
-            } else if (promptLength < splitLength) {
-              splitBtn.setAttribute('disabled', 'disabled');
-              splitBtn.textContent = 'Prompt is shorter than split length';
-            } else {
-              splitBtn.removeAttribute('disabled');
-              splitBtn.textContent = `Split into ${Math.ceil(promptLength / splitLength)} parts`;
-            }
+        const promptLength = promptField.value.trim().length;
+        const splitLengthValue = parseInt(splitLength.value);
+    
+        if (promptLength === 0) {
+            splitBtn.setAttribute('disabled', 'disabled');
+            splitBtn.classList.add('disabled');
+            splitBtn.textContent = 'Enter a prompt';
+        } else if (isNaN(splitLengthValue) || splitLengthValue === 0) {
+            splitBtn.setAttribute('disabled', 'disabled');
+            splitBtn.classList.add('disabled');
+            splitBtn.textContent = 'Enter the length for calculating';
+        } else if (promptLength < splitLengthValue) {
+            splitBtn.setAttribute('disabled', 'disabled');
+            splitBtn.classList.add('disabled');
+            splitBtn.textContent = 'Prompt is shorter than split length';
+        } else {
+            splitBtn.removeAttribute('disabled');
+            splitBtn.classList.remove('disabled');
+            splitBtn.textContent = `Split into ${Math.ceil(promptLength / splitLengthValue)} parts`;
         }
-        
-        // Add this line to call updateSplitBtnStatus() when the page is loaded
-        document.addEventListener('DOMContentLoaded', updateSplitBtnStatus);
-          
-        promptTextArea.addEventListener('input', updateSplitBtnStatus);
-        document.getElementById('split_length').addEventListener('input', updateSplitBtnStatus);
+      }
 
-        function updatePromptCharCount() {
-            const promptLength = promptTextArea.value.length;
-            document.getElementById('prompt-char-count').textContent = promptLength;
-        }
-        
-        promptTextArea.addEventListener('input', () => {
-            updateSplitBtnStatus();
-            updatePromptCharCount();
-        });
+      function updatePromptCharCount() {
+        const promptField = document.getElementById("prompt");
+        const charCount = document.getElementById("prompt-char-count");
+        const promptLength = promptField.value.trim().length;
+        charCount.textContent = promptLength;
+      }
 
-        function updateCharCount() {
-            const promptField = document.getElementById('prompt');
-            const charCount = document.getElementById('prompt-char-count');
-            charCount.textContent = promptField.value.length;
-        }
-          
-        document.getElementById('prompt').addEventListener('input', updateCharCount);
-        updateCharCount();
-
-        function updateSplitButton() {
-            const promptField = document.getElementById('prompt');
-            const splitLength = document.getElementById('split_length');
-            const splitBtn = document.getElementById('split-btn');
-          
-            if (promptField.value.length < splitLength.value || !promptField.value.length) {
-                splitBtn.setAttribute('disabled', 'true');
-                splitBtn.classList.add('disabled');
-                if (!promptField.value.length) {
-                  splitBtn.textContent = 'Enter a prompt';
-                } else {
-                  splitBtn.textContent = 'Prompt is shorter than split length';
-                }
-            } else {
-                splitBtn.removeAttribute('disabled');
-                splitBtn.classList.remove('disabled');
-            }
-        }
-
-        document.getElementById('prompt').addEventListener('input', updateSplitButton);
-        document.getElementById('split_length').addEventListener('input', updateSplitButton);
-        document.getElementById('preset').addEventListener('change', updateSplitButton);
-        updateSplitButton();
+      updateSplitButtonStatus();
     </script>
-</body>
+  </body>
 </html>
