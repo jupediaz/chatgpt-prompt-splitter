@@ -26,8 +26,10 @@
         <div class="header-text">
           <h1>ChatGPT PROMPTs Splitter</h1>
           <h2>Tool for safely process chunks of up to 15,000 characters per request</h2>
+          <div class="how-this-works"><a href="https://medium.com/@josediazmoreno/break-the-limits-send-large-text-blocks-to-chatgpt-with-ease-6824b86d3270" target="_blank">How this works</a></div>
         </div>
       </div>
+      <div class="visits">Visit count: {{ visit_count }}</div>
       <form action="/" method="post">
         <div class="form-group">
           <label for="prompt">Enter the long prompt to be splitted</label>
@@ -71,14 +73,13 @@ And when I tell you "ALL PARTS SENT", then you can continue processing the data 
         {% endfor %}
       </div>
       {% endif %}
-
-      <div class="how-this-works"><a href="https://medium.com/@josediazmoreno/break-the-limits-send-large-text-blocks-to-chatgpt-with-ease-6824b86d3270" target="_blank">How this works</a></div>
       <footer>
         <p>
           <div class="left">Created with ❤️ by <a href="https://jjdiaz.dev" target="_blank">jjdiaz.dev</a></div>
-          <div class="right"><a href="https://github.com/jupediaz/chatgpt-prompt-splitter" target="_blank">Github repo</a></div>
+          <div class="right"><a href="https://github.com/jupediaz/chatgpt-prompt-splitter" target="_blank">GitHub repository</a></div>
         </p>
       </footer>
+      <div class="powered-by-vercel"><img src="/static/powered-by-vercel.svg" alt="Powered by Vercel" /></div>
     </div>
     <script src="/static/scripts.js"></script>
   </body>
