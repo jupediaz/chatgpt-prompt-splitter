@@ -195,20 +195,33 @@ pre {
     border-radius: 5px;
 }
 
-.footer {
+footer {
     margin-top: 20px;
-    padding-top: 20px;
-    text-align: center;
+    padding-top: 10px;
     border-top: 1px solid #ccc;
+    display: flex;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
 }
 
-.footer a {
-    color: #333;
-    text-decoration: none;
+.left,
+.right {
+    width: 50%;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.how-this-works {
+    margin-top: 40px;
+    font-size: 12px;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
