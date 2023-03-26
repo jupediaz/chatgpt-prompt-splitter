@@ -18,6 +18,10 @@ The tool ensures that the text is divided into safe chunks of up to 15,000 chara
 
 The project includes an easy-to-use web interface for inputting the long text, selecting the maximum length of each chunk, and copying the chunks individually to paste them to ChatGPT.
 
+## Post on Medium
+
+You can read the full article on Medium: [ChatGPT PROMPTs Splitter: Split long text prompts into smaller chunks for ChatGPT](https://medium.com/@josediazmoreno/break-the-limits-send-large-text-blocks-to-chatgpt-with-ease-6824b86d3270)
+
 ## How it works
 
 The tool uses a simple algorithm to split the text into smaller chunks. The algorithm is based on the following rules:
