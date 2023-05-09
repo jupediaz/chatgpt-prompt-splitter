@@ -53,7 +53,7 @@
             <option value="15000" {% if split_length == 15000 or split_length is none or split_length == '' %}selected{% endif %}>General max safe chunk for ChatGPT (15,000)</option>
             <option value="custom" {% if split_length != 8000 and split_length != 15000 and split_length != '' and split_length is not none %}selected{% endif %}>Custom</option>
         </select>
-        <input type="number" name="split_length" class="custom-length" id="split_length" min="1" required value="{{ split_length if split_length is not none and split_length != '' else 1000 }}" {% if split_length == 8000 or split_length == 15000 or split_length is none or split_length == '' %}style="display: none;"{% endif %}>
+        <input type="number" name="split_length" class="custom-length" id="split_length" min="1" required value="{{ split_length if split_length is not none and split_length != '' else 15000 }}" {% if split_length == 8000 or split_length == 15000 or split_length is none or split_length == '' %}style="display: none;"{% endif %}>
         <help>Choose the max length for each split part.</help>
         <button type="submit" id="split-btn" class="{% if btn_disabled %}disabled{% endif %}"{% if btn_disabled %} disabled{% endif%}>Enter a prompt</button>
       </form>
