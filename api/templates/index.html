@@ -48,7 +48,7 @@
             <span id="prompt-char-count">{{ prompt|length }}</span> characters
           </div>
         </div>
-        <label for="split_length">Max chars length for each splitted part</label>
+        <label for="split_length">Max chars length for each split part</label>
         <select name="preset" id="preset" onchange="toggleCustomLength(this)" required>
             <option value="15000" {% if split_length == 15000 or split_length is none or split_length == '' %}selected{% endif %}>General max safe chunk for ChatGPT (15,000)</option>
             <option value="custom" {% if split_length != 8000 and split_length != 15000 and split_length != '' and split_length is not none %}selected{% endif %}>Custom</option>
