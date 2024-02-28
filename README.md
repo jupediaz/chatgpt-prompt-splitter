@@ -32,7 +32,7 @@ The tool uses a simple algorithm to split the text into smaller chunks. The algo
 
 ## Features
 
-- Python 3.9
+- Python 3.10
 - Web interface for splitting text into smaller chunks
 - Customizable maximum length for each chunk
 - Copy chunks individually to send to ChatGPT
